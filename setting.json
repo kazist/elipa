@@ -10,6 +10,12 @@
                     "tooltip": "Set Elipa Vendor Ref <b>(ie merchannt name)</b>",
                     "type": "text"
                 }, {
+                    "name": "ipay_payments_vendor_hashcode",
+                    "label": "Vendor Hashcode",
+                    "default": "",
+                    "tooltip": "Set Ipay Vendor Hashcode <b>(ie merchannt name)</b>",
+                    "type": "text"
+                }, {
                     "name": "elipa_payments_mobile_payment",
                     "label": "Mobile Payment",
                     "default": "1",

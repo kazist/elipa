@@ -16,7 +16,7 @@
         "file_type": "csv",
         "file_limit": "2000",
         "form_path": "Elipa/Payments/Code/gateways",
-        "url": "https://www.elipaafrica.com/incoming/",
+        "url": "https://www.ipayafrica.com/incoming/",
         "published": "1"
     }]
 

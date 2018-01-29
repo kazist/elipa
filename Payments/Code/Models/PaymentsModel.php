@@ -67,7 +67,7 @@ class PaymentsModel extends BasePaymentsModel {
 
         $vendor_ref = $this->getGatewayParameter($gateway->id, 'vendor_ref');
 
-        $ipnurl = "https://www.elipaafrica.com/ipn/?vendor=" . $vendor_ref .
+        $ipnurl = "https://www.ipayafrica.com/ipn/?vendor=" . $vendor_ref .
                 "&id=" . $posted_data['item_id'] .
                 "&ivm=" . $posted_data['ivm'] .
                 "&qwh=" . $posted_data['qwh'] .

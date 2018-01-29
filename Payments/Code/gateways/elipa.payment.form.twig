@@ -9,14 +9,14 @@
 {% set tmparray = tmparray|merge({'mb': get_setting('elipa_payments_mobile_payment')|default('0')}) %}
 {% set tmparray = tmparray|merge({'dc': get_setting('elipa_payments_debit_card')|default('0')}) %}
 {% set tmparray = tmparray|merge({'cc': get_setting('elipa_payments_credit_card')|default('0')}) %}
-{% set tmparray = tmparray|merge({'mer': 'Social Biz Connect'}) %}
+{% set tmparray = tmparray|merge({'mer': get_setting('elipa_payments_vendor_title')}) %}
 {% set tmparray = tmparray|merge({'oid':  payment.id }) %}
 {% set tmparray = tmparray|merge({'inv':  payment.id }) %}
 {% set tmparray = tmparray|merge({'ttl': gateway.total_amount|round(0, 'ceil') }) %}
 {% set tmparray = tmparray|merge({'tel': user.phone|default('020232323')|replace({' ': "", '-': ""}) }) %}
 {% set tmparray = tmparray|merge({'eml': user.email }) %}
-{% set tmparray = tmparray|merge({'vid': 'sbc'}) %}
-{% set tmparray = tmparray|merge({'cur': 'kes'}) %}
+{% set tmparray = tmparray|merge({'vid': get_setting('elipa_payments_vendor_ref')}) %}
+{% set tmparray = tmparray|merge({'cur': get_setting('elipa_payments_vendor_currency')}) %}
 {% set tmparray = tmparray|merge({'p1': 'mpesa'}) %}
 {% set tmparray = tmparray|merge({'p2': ''}) %}
 {% set tmparray = tmparray|merge({'p3': ''}) %}
@@ -27,7 +27,7 @@
 
 
 {% set datastring = tmparray|join() %}
-{% set hashkey = 'HYGD4512Kjbbff7655mngdsbc' %}
+{% set hashkey = get_setting('elipa_payments_vendor_hashcode') %}
 {% set hashid = hash_hmac('sha1', datastring, hashkey) %}
 
 {% set tmparray = tmparray|merge({'hsh': hashid}) %}
@@ -49,7 +49,7 @@
 
 #}
 
-<input class="payment_url" type="hidden" name="payment_url" value="https://www.elipaafrica.com/payments?{{ url }}" title='Pay with Mpesa'>
+<input class="payment_url" type="hidden" name="payment_url" value="https://payments.elipa.co.tz/v3/tz?{{ url }}" title='Pay with Mpesa'>
 
 <center>
     <a class="process-payment" href="#" title="Complete Payment">
