@@ -1,0 +1,6 @@
+{
+    "ElipaPayments": {
+        "namespace": "Elipa\\Payments",
+        "controller": "PaymentsController"
+    }
+}

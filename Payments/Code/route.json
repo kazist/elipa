@@ -1,0 +1,113 @@
+{
+    "frontend": [{
+            "title": "Elipa Payments Return",
+            "description": "Elipa Payments Return.",
+            "controller": "Elipa\\Payments\\Code\\Controllers\\PaymentsController::returnAction",
+            "unique_name": "elipa.payments.return",
+            "route": "elipa/payments/return",
+            "permissions": "can_view, can_viewown",
+            "arguments": "",
+            "keywords": "elipa, return",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+
+        }, {
+            "title": "Elipa Payments Cancelled",
+            "description": "Elipa Payments Cancelled",
+            "controller": "Elipa\\Payments\\Code\\Controllers\\PaymentsController::cancelAction",
+            "unique_name": "elipa.payments.cancel",
+            "route": "elipa/payments/cancel",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "elipa, cancel",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+        }, {
+            "title": "Elipa Payments Notify",
+            "description": "Elipa Payments Notify",
+            "controller": "Elipa\\Payments\\Code\\Controllers\\PaymentsController::notifyAction",
+            "unique_name": "elipa.payments.notify",
+            "route": "elipa/payments/notify",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "elipa, notify",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+        }],
+    "backend": [{
+            "title": "General Tasks",
+            "description": "General Tasks.",
+            "controller": "Elipa\\Payments\\Code\\Controllers\\Admin\\PaymentsController::taskAction",
+            "unique_name": "admin.elipa.payments.task",
+            "route": "admin/elipa/payments/task",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": "",
+            "keywords": "payments, task",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Elipa Payments List",
+            "description": "Management of Elipa Payments.",
+            "controller": "Elipa\\Payments\\Code\\Controllers\\Admin\\PaymentsController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "admin.elipa.payments",
+            "route": "admin/elipa/payments",
+            "arguments": "",
+            "keywords": "elipa, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Elipa Payments Detail: {{ item.name }}",
+            "description": "Elipa Payments Detail: {{ item.name }}",
+            "controller": "Elipa\\Payments\\Code\\Controllers\\Admin\\PaymentsController::detailAction",
+            "unique_name": "admin.elipa.payments.detail",
+            "route": "admin/elipa/payments/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "elipa, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Elipa Payments Delete: {{ item.name }}",
+            "description": "Elipa Payments Delete: {{ item.name }}",
+            "controller": "Elipa\\Payments\\Code\\Controllers\\Admin\\PaymentsController::deleteAction",
+            "unique_name": "admin.elipa.payments.delete",
+            "route": "admin/elipa/payments/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "elipa, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_delete", "can_deleteown"]
+            }
+        }]
+} 	
