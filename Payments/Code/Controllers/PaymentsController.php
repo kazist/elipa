@@ -27,7 +27,7 @@ class PaymentsController extends BasePaymentsController {
 
         $payment_id = $this->request->query->get('id');
 
-        $this->model = new ElipaModel();
+        $this->model = new PaymentsModel();
         $this->model->cancelTransaction($payment_id);
         $payment_url = $this->model->getUrlByPaymentId($payment_id);
 
@@ -38,7 +38,7 @@ class PaymentsController extends BasePaymentsController {
 
         $payment_id = $this->request->query->get('id');
 
-        $this->model = new ElipaModel();
+        $this->model = new PaymentsModel();
         $this->model->completeTransaction($payment_id);
         $payment_url = $this->model->getUrlByPaymentId($payment_id);
 
@@ -49,7 +49,7 @@ class PaymentsController extends BasePaymentsController {
 
         $payment_id = $this->request->query->get('id');
 
-        $this->model = new ElipaModel();
+        $this->model = new PaymentsModel();
         $this->model->processElipa($payment_id);
         $this->model->notificationTransaction($payment_id);
         $payment_url = $this->model->getUrlByPaymentId($payment_id);
